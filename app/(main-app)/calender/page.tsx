@@ -10,19 +10,20 @@ export default async function page() {
 
   const session = await getServerSession(authOptions) 
   const email = session?.user.email
-  const workflow = await fetchWorkflowTimelines(email) as any
+  const timeLines = await fetchWorkflowTimelines(email) as any
  // console.log(workflow)
   
-if(!workflow.timeLines){
+if(!timeLines){
   return(
-    <PureCalender/>
+   <PureCalender />
+   
   )
 }
  
   
   return (
     <div>
-        <CalenderDemo timeLines={workflow}/>
+        <CalenderDemo timeLines={timeLines}/>
     </div>
   )
 }

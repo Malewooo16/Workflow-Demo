@@ -25,7 +25,12 @@ export default async function fetchWorkflowTimelines(creatorEmail:any){
    // console.log(workflows)
    const bundledTimeLines = workflows
   .filter((item:any) => item.timeLines && item.timeLines.length > 0)
-  .flatMap((item:any) => JSON.parse(item.timeLines[0]));
+  .flatMap((item:any) => JSON.parse(item.timeLines[0]))
+  .map((item:any) => ({
+    title: item.title,
+    startDate: new Date(item.startTime),
+    endDate: new Date(item.endTime),
+  }));
 
 console.log(bundledTimeLines);
 
