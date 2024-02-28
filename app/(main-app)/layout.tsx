@@ -55,6 +55,13 @@ export default async function AppLayout({
                   Teams{" "}
                 </Link>{" "}
               </li>
+              {session.user.role === "super admin" && 
+                <div className="flex flex-col justify-end mt-20">
+                  <h2 className="text-lg">Admin Actions</h2>
+                 <li> <Link href={`/fileuploadTest/moreTests`}> Add Users </Link></li>
+                </div>
+                
+                }
             </ul>
           </div>
           <div className="flex-1 mx-4">{children}</div>

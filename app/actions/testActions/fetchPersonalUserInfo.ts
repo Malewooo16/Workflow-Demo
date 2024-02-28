@@ -5,10 +5,10 @@ import { revalidatePath } from "next/cache";
 async function fetchPersonalUserInfo(userId: string ) {
     try {
         if (!userId || userId.trim() === '') {
-            return { error: "Email address cannot be empty", success:false };
+            throw new Error ( "Email address cannot be empty")
         }
 
-        const userData = await prisma.testPerson.findMany({
+        const userData = await prisma.testPerson.findUnique({
             where: {
                userId
             }
@@ -20,7 +20,7 @@ async function fetchPersonalUserInfo(userId: string ) {
     
     } catch (error) {
         console.error("Error fetching userData:", error);
-        return { error: "Internal Server Error" };
+        return { error: "Internal Server Error", success:false };
     }
 
     
