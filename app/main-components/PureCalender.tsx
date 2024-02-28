@@ -21,7 +21,7 @@ import fetchWorkflowTimelines from '../actions/testActions/fetchTimeLines';
 
 //import { appointments } from '../../../demo-data/month-appointments';
 
-export default function CalenderDemo(props:{timeLines:any}) {
+export default function CalenderDemo() {
   
  // const timeLines = await fetchWorkflowTimelines(props.emailAddress)
   //const parsedTimeLines = JSON.parse(timeLines)
@@ -36,7 +36,7 @@ export default function CalenderDemo(props:{timeLines:any}) {
   
   return (
     <Paper>
-      <Scheduler   height={660}>
+      <Scheduler  height={660}>
         <ViewState
           defaultCurrentDate="2024-02-25"
           currentViewName={currentViewName}
