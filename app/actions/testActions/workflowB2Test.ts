@@ -1,10 +1,10 @@
 "use server"
 
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import prisma from "@/app/db/prismadb";
 import toB2Test from "./toB2Test";
 import { revalidatePath } from "next/cache";
+import { authOptions } from "@/utilities/authOptions";
 
 interface SuccessResponse {
   success: true;

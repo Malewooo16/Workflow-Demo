@@ -60,8 +60,8 @@ export default function UserPicUpload(props : {nextStep:number , setNextStep : (
   <span> {error} </span>
 </div>}
         <h2 className="text-lg my-4">Upload User Pic</h2>
-        <form action={toFinalStep}>
-        <p> {userId} </p>
+        <form action={toFinalStep} className="max-w-lg">
+        {/* <p> {userId} </p> */}
         <input type="file" className="file-input file-input-bordered w-full" name="userPic" onChange={handleFileChange} required />
         <p>Preview:</p>
         {base64String && <Image className="my-4" src={base64String} alt="preview" width={250} height={250} /> }

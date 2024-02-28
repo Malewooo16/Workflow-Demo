@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Navbar from "../main-components/Navbar";
-import { authOptions } from "../api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import { useRouter } from "next/navigation";
 import RedirectToLogin from "../main-components/RedirectToLogin";
 import ThemeProvider from "../main-components/ThemeProvider";
 import LoginForm from "../main-components/LoginForm";
+import { authOptions } from "@/utilities/authOptions";
 
 export default async function AppLayout({
   children,
@@ -44,11 +44,13 @@ export default async function AppLayout({
                 </Link>{" "}
               </li>
               <li>
-                <Link href={`/gantts`} className="mb-3">
+                <Link href={`/calender`} className="mb-3">
                   {" "}
-                  Gantts{" "}
+                  Calender{" "}
                 </Link>{" "}
               </li>
+
+              
               <li>
                 <Link href={`/teams`} className="mb-3">
                   {" "}

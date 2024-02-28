@@ -5,7 +5,9 @@ import { hash, compare} from 'bcrypt'
 export async function POST(req:Request){
     const requestBody= await req.json()
     const {userName, password}= requestBody
-
+    if(!userName && !password){
+        return
+    }
     try{
         const existingUser= await prisma.users.findUnique({
             where:{emailAddress:userName}

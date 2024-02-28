@@ -32,26 +32,23 @@ export default function CalenderDemo(props:{timeLines:any}) {
     setCurrentViewName(newViewName);
   };
 
-  if (!props.timeLines || props.timeLines.length === 0) {
-    // If there are no timelines, you can render a message or return null
-    return <div>No timelines available.</div>;
-  }
+ 
   
   return (
     <Paper>
-      <Scheduler data={props.timeLines}  height={660}>
+      <Scheduler   height={660}>
         <ViewState
           defaultCurrentDate="2024-02-25"
           currentViewName={currentViewName}
           onCurrentViewNameChange={handleCurrentViewNameChange}
         />
 
-        <WeekView startDayHour={10} endDayHour={19} />
+        <WeekView startDayHour={7} endDayHour={18} />
         <WeekView
           name="work-week"
           displayName="Work Week"
           excludedDays={[0, 6]}
-         
+          startDayHour={7} endDayHour={18}
         />
         <MonthView />
         <DayView />

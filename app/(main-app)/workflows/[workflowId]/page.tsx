@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 import prisma from "@/app/db/prismadb";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";

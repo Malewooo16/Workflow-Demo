@@ -7,7 +7,6 @@ import SignOut from './SignOut'
 export default async function Navbar() {
   
 
-  //const session= await getServerSession(authOptions)
   return (
     <div className="navbar bg-base-100 ">
   <div className="flex-1">

@@ -1,8 +1,9 @@
 "use server"
 
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+
 import prisma from "../db/prismadb";
+import { authOptions } from "@/utilities/authOptions";
 
 interface SuccessResponse {
   success: true;

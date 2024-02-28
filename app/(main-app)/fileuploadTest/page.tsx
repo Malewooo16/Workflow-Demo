@@ -41,32 +41,33 @@ export default  function AddWorkflow() {
   async function createNewWorkflowTestB2(formData: { workflowTitle: string; description: string; deadline: string; with: string; }){
     
     
-    try{
-      setIsLoading(true)
-      const result = await addNewWorkflowB2Test(formData);
+  //   try{
+  //     setIsLoading(true)
+  //     /// Will Update the test function
+  //     const result = true;
 
-    if(result.success == true){
-      setError(false)
-      setIsLoading(false)
-       const workflowId = result.workflowId;
-       dispatch(setValue(workflowId))
-        reset()
-        window.scrollTo({ top: 10, behavior: 'smooth'});
-        setModal(true);
+  //   if(result.success == true){
+  //     setError(false)
+  //     setIsLoading(false)
+  //      const workflowId = result.workflowId;
+  //      dispatch(setValue(workflowId))
+  //       reset()
+  //       window.scrollTo({ top: 10, behavior: 'smooth'});
+  //       setModal(true);
         
-    }
-    else if (result.success==false){
-      setIsLoading(false)
-      setError(true)
-      setErrorMesssage(result.error)
-      window.scrollTo({ top: 10, behavior: 'smooth' });
-    }
-  }
+  //   }
+  //   else if (result.success==false){
+  //     setIsLoading(false)
+  //     setError(true)
+  //     setErrorMesssage(result.error)
+  //     window.scrollTo({ top: 10, behavior: 'smooth' });
+  //   }
+  // }
 
-  catch(error){
-    setIsLoading(false)
-    setErrorMesssage(error)
-  }
+  // catch(error){
+  //   setIsLoading(false)
+  //   setErrorMesssage(error)
+  // }
     }
 
     async function uploadFiles(formData : FormData){
