@@ -19,7 +19,7 @@ export default async function fetchWorkflowTimelines(creatorEmail:any){
     });
 
     if (!workflows || workflows.length === 0) {
-        return { error: "No TimeLines available", success:false };
+        return ;
     }
     
    // console.log(workflows)

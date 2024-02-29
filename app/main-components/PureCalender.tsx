@@ -21,7 +21,7 @@ import fetchWorkflowTimelines from '../actions/testActions/fetchTimeLines';
 
 //import { appointments } from '../../../demo-data/month-appointments';
 
-export default function CalenderDemo() {
+export default function PureCalender() {
   
  // const timeLines = await fetchWorkflowTimelines(props.emailAddress)
   //const parsedTimeLines = JSON.parse(timeLines)
