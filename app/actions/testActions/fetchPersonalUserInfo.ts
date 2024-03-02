@@ -8,9 +8,9 @@ async function fetchPersonalUserInfo(userId: string ) {
             throw new Error ( "Email address cannot be empty")
         }
 
-        const userData = await prisma.testPerson.findUnique({
+        const userData = await prisma.users.findUnique({
             where: {
-               userId
+               validateTkn:userId
             }
         });
 

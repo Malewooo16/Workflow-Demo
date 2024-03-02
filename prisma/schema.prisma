@@ -26,10 +26,15 @@ model users{
   id Int @id @default(autoincrement())
   firstName String
   lastName String
-  phoneNumber Int
+  phoneNumber String
+  townAddress String?
   emailAddress String @unique
   hashedPassword String
+  dob DateTime?
+  pictureURL String?
   role String
+  validated Boolean @default(false)
+  validateTkn String  @default(uuid()) @unique
   createdAt DateTime @default(now())
 }
 
@@ -69,4 +74,5 @@ model testPerson{
   phoneNumber String
   validated Boolean @default(false)
   createdAt DateTime @default(now())
+
 }

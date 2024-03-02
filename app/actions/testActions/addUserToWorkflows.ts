@@ -15,8 +15,8 @@ interface userData {
   //miltevakno@gufum.com
   //nuydehutre@gufum.com
 
-export default async function addUserToWorkflow(formData : userData , userId:string){
- 
+export default async function addUserToWorkflow(formData : userData ){
+ console.log(formData)
 
   try{
     const existingEmail= await prisma.users.findUnique({
@@ -25,33 +25,27 @@ export default async function addUserToWorkflow(formData : userData , userId:str
         }
     })
 
-    if(existingEmail){
-        return {user:null, message:"The user with this email already exists", success:false}
+    if(!existingEmail){
+        return {user:null, message:"Such user doesn't exists", success:false}
     }
     
     const encryptedPassword= await hash(formData.password, 10)
    
 
-    const newUser= await prisma.users.create({
+    const newUser= await prisma.users.update({
+      where:{
+          emailAddress:formData.emailAddress
+      },
         data:{
-            firstName:formData.firstName,
-            lastName:formData.lastName,
-            emailAddress:formData.emailAddress,
-            phoneNumber:parseInt(formData.phoneNumber),
-            role:formData.role,
-            hashedPassword:encryptedPassword
+            hashedPassword:encryptedPassword,
+            validated:true
 
         }
     })
 
-    
-    const updatedUser = await prisma.testPerson.update({
-      where: { userId: userId },
-      data: {
-        validated: true,
-        // Other fields you want to update...
-      },
-    });
+    console.log(newUser)
+
+
     return { success:true, message:"User Created Successfully"}
 }
 

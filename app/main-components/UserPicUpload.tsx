@@ -12,6 +12,7 @@ export default function UserPicUpload(props : {nextStep:number , setNextStep : (
    const [error, setError] = useState('')
    const [success, setSuccess] = useState('')
    const userId = useSelector((state:any)=>state.cart.userData.userId)
+   const userEmail = useSelector((state:any) => state.cart.userData.userEmail)
     const handleFileChange = (event:any) => {
         const file = event.target.files[0];
     
@@ -32,7 +33,7 @@ export default function UserPicUpload(props : {nextStep:number , setNextStep : (
       };
 
       const toFinalStep =async(formData :FormData) =>{
-        const response = await userPicUpload(formData, userId)
+        const response = await userPicUpload(formData, userEmail)
         try{
           if(response?.success){
             setError('')

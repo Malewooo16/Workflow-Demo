@@ -12,7 +12,7 @@ import * as Yup from 'yup';
 interface SuccessResponse {
   success: true;
   message?: string;
-  userId: string;
+  validateTkn: string;
   userEmail:string;
 }
 
@@ -71,18 +71,20 @@ export async function addNewUser(formData: UserData ): Promise<SuccessResponse |
       emailAddress: rawFormData.emailAddress,
       townAddress: rawFormData.townAddress,
       phoneNumber: rawFormData.phoneNumber,
+      role:"Normal user",
+      hashedPassword:"1234",
       dob: updatedDob,
       pictureURL:""
       
     };
 
-    const prismaResponse = await prisma.testPerson.create({
+    const prismaResponse = await prisma.users.create({
       data: updatedData,
     });
 
     console.log(prismaResponse);
 
-    return { success: true, message: "User created successfully.", userId:prismaResponse.userId, userEmail:prismaResponse.emailAddress };
+    return { success: true, message: "User created successfully.", validateTkn:prismaResponse.validateTkn, userEmail:prismaResponse.emailAddress };
   } catch (error) {
     console.error('Error creating user:', error);
 

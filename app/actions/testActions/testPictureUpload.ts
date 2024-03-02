@@ -15,7 +15,7 @@ const s3 = new AWS.S3(b2Credentials);
 
 // Upload function
 
-export default async function userPicUpload(formData: FormData, userId:string) {
+export default async function userPicUpload(formData: FormData, emailAddress:string) {
   
   const fileData = formData.get('userPic') as File
   if (!fileData) return;
@@ -39,9 +39,9 @@ export default async function userPicUpload(formData: FormData, userId:string) {
     // Upload the file to S3-compatible storage
     const response = await s3.upload(params).promise();
 
-    const updatedFile = await prisma.testPerson.update({
+    const updatedFile = await prisma.users.update({
       where: {
-        userId: userId,
+        emailAddress
       },
       data: {
         pictureURL:response.Location

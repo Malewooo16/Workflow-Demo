@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 interface userData {
-  userId: string;
+  id: number;
   firstName: string;
   lastName: string;
   townAddress: string;
@@ -58,21 +58,23 @@ export default function ValidateNewUser(props: { userData: userData }) {
       role: "Normal User",
     }
 
-    const createUserResponse = await addUserToWorkflow(newUser , userData.userId )
+    const createUserResponse = await addUserToWorkflow(newUser)
 
    try{
     if(createUserResponse.success){
       setError("");
-      router.push('/validateusr/validatesuccess')
+      router.push('/validatesuccess')
   }
 
   else{
     setError("Error in creating user");
+    window.scrollTo({ top: 10, behavior: 'smooth' });
   }
    }
 
-   catch{
-    setError("Error in creating user");
+   catch(err){
+    setError(`Error in creating user ${err}`);
+    window.scrollTo({ top: 10, behavior: 'smooth' });
    }
   };
 

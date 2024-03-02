@@ -43,7 +43,7 @@ export default function AddNewUser( props : {nextStep:number , setNextStep:()=>v
                const result = await addNewUser(formData);
                if (result.success) {
                 dispatch(setUserData({
-                  userId:result.userId,
+                  userId:result.validateTkn,
                   userEmail:result.userEmail
                 }))
                 props.setNextStep();
