@@ -67,7 +67,7 @@ export default async  function page({searchParams} : {searchParams:any}) {
     <div className="dropdown">
   <div tabIndex={0} role="button" className="btn mt-4">Click</div>
   <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-    <li><a>Item 1</a></li>
+    <li><Link href={`/`}>Item 1</Link></li>
     <li><a>Item 2</a></li>
   </ul>
 </div>
@@ -77,7 +77,7 @@ export default async  function page({searchParams} : {searchParams:any}) {
     <div className="grid grid-cols-1 place-items-center md:grid-cols-2 md:place-items-start my-3 px-2">
       {workflow.reverse().map((w) => (
         <Link href={`/workflows/${w.workflowId}`} key={w.workflowId}>
-          <div className="card w-auto lg:w-[90%] h-36 bg-base-100 shadow-lg p-4 border border-base-300 mb-4">
+          <div className="card w-96 lg:w-[450px] h-36 bg-base-100 shadow-lg p-4 border border-base-300 mb-4">
             <ul className="mb-2">
               <>
                 <li>{w.workflowTitle}</li>

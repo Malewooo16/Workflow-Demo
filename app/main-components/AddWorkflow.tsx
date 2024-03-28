@@ -241,7 +241,7 @@ export default  function AddWorkflow() {
         <p className="text-xl my-4"> Your Workflow has been added! Upload Files related to this workflow </p>
         <label className='form-control max-w-xl my-4 join-item'>
     <p className="my-2"> Upload Files related to the workflow</p>
-    <input type="file" className="file-input file-input-bordered w-full max-w-xs" name='related-files' />
+    <input type="file" className="file-input file-input-bordered w-full max-w-xs" name='related-files' required />
   </label>
  
       <ServerBtn/>
