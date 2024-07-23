@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import Paper from '@mui/material/Paper';
-import { ViewState } from '@devexpress/dx-react-scheduler';
+import React, { useState } from "react";
+import Paper from "@mui/material/Paper";
+import { ViewState } from "@devexpress/dx-react-scheduler";
 import {
   Scheduler,
   MonthView,
@@ -14,21 +14,20 @@ import {
   AppointmentTooltip,
   AppointmentForm,
   WeekView,
-  DayView
-} from '@devexpress/dx-react-scheduler-material-ui';
-import { appointments } from '@/utilities/appointments';
-import fetchWorkflowTimelines from '../actions/testActions/fetchTimeLines';
+  DayView,
+} from "@devexpress/dx-react-scheduler-material-ui";
+import { appointments } from "@/utilities/appointments";
+import fetchWorkflowTimelines from "../actions/testActions/fetchTimeLines";
 
 //import { appointments } from '../../../demo-data/month-appointments';
 
-export default function CalenderDemo(props:{timeLines:any}) {
-  
- // const timeLines = await fetchWorkflowTimelines(props.emailAddress)
+export default function CalenderDemo(props: { timeLines: any }) {
+  // const timeLines = await fetchWorkflowTimelines(props.emailAddress)
   //const parsedTimeLines = JSON.parse(timeLines)
 
-  const [currentViewName, setCurrentViewName] = useState('work-week');
+  const [currentViewName, setCurrentViewName] = useState("work-week");
 
-  const handleCurrentViewNameChange = (newViewName:any) => {
+  const handleCurrentViewNameChange = (newViewName: any) => {
     setCurrentViewName(newViewName);
   };
 
@@ -36,12 +35,12 @@ export default function CalenderDemo(props:{timeLines:any}) {
     // If there are no timelines, you can render a message or return null
     return <div>No timelines available.</div>;
   }
-  
+
   return (
     <Paper>
-      <Scheduler data={props.timeLines}  height={660}>
+      <Scheduler data={props.timeLines} height={660}>
         <ViewState
-          defaultCurrentDate="2024-02-25"
+          defaultCurrentDate={new Date()}
           currentViewName={currentViewName}
           onCurrentViewNameChange={handleCurrentViewNameChange}
         />
@@ -51,25 +50,17 @@ export default function CalenderDemo(props:{timeLines:any}) {
           name="work-week"
           displayName="Work Week"
           excludedDays={[0, 6]}
-         
         />
         <MonthView />
         <DayView />
         <Toolbar />
         <DateNavigator />
-        
+
         <ViewSwitcher />
         <Appointments />
-        <AppointmentTooltip
-            showCloseButton
-            showOpenButton
-          />
-          <AppointmentForm
-            readOnly
-          />
+        <AppointmentTooltip showCloseButton showOpenButton />
+        <AppointmentForm readOnly />
       </Scheduler>
     </Paper>
   );
-};
-
-
+}

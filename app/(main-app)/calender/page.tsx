@@ -11,7 +11,7 @@ export default async function page() {
   const session = await getServerSession(authOptions) 
   const email = session?.user.email
   const timeLines = await fetchWorkflowTimelines(email) as any
- console.log(timeLines)
+ //console.log(timeLines)
   
 if(!timeLines){
   return(
